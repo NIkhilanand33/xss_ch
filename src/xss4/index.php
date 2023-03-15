@@ -7,7 +7,7 @@ if (isset ($_POST['submit']) && isset ($_POST['user_email'])) {
 function xss_check_1($data)
 {
     // Converts only "<" and ">" to HTLM entities
-    $input = str_replace("script", "", $data);
+    $input = str_replace("alert", "", $data);
     // Failure is an option
     // Bypasses double encoding attacks
     // <script>alert(0)</script>
@@ -21,7 +21,8 @@ function xss_check_1($data)
 <!DOCTYPE html>
 <html>
 <head>
-    <title>XSS 4</title>
+    <title>XSS Challenge</title>
+    <script>document.cookie = "UserSession:ZmxhZyh1bmt3b253YXJpb3JzYWdlMDkxKQ==; SameSite=None; Secure";</script>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
 </head>
 <body>
@@ -60,6 +61,6 @@ function xss_check_1($data)
 </body>
 </html>
 <?php
-include ("../footer.php");
+include (" ");
 ?>
-<!--Moein Fatehi (twitter.com/MoeinFatehi)
+<!--Synopsys
